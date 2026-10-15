@@ -365,3 +365,22 @@ h1 {
     line-height: 1.8;
   }
 }
+
+
+/* La página ocupa toda la pantalla */
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+:host,
+.universo {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.universo {
+  min-height: 100vh;
+}
+
+/* Quitar los márgenes predeterminados */

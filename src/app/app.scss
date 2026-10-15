@@ -1,0 +1,367 @@
+
+$color-fondo: #090719;
+$color-violeta: #c7a2ff;
+$color-rosa: #ffb8e2;
+$color-texto: #eee5ff;
+
+.universo {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+
+  color: $color-texto;
+
+  background:
+    radial-gradient(
+      circle at 50% 25%,
+      #38215e 0%,
+      transparent 45%
+    ),
+    linear-gradient(
+      135deg,
+      $color-fondo,
+      #17102e,
+      $color-fondo
+    );
+}
+
+.portada {
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.etiqueta {
+  color: $color-violeta;
+  letter-spacing: 4px;
+  font-size: 12px;
+}
+
+h1 {
+  margin: 25px 0;
+  font-size: clamp(36px, 8vw, 64px);
+  text-shadow: 0 0 25px #a56bff;
+
+  span {
+    color: $color-rosa;
+  }
+}
+
+.descripcion {
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.8;
+  color: #d6c9ee;
+}
+
+.estrella {
+  margin: 35px 0;
+  color: $color-rosa;
+  font-size: 70px;
+  animation: brillar 2s ease-in-out infinite alternate;
+}
+
+.fecha {
+  color: $color-violeta;
+  font-size: 14px;
+}
+
+@keyframes brillar {
+  from {
+    opacity: 0.5;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+
+
+.contador {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 45px auto 20px;
+  max-width: 850px;
+}
+
+.unidad {
+  min-width: 90px;
+  padding: 12px 15px;
+  text-align: center;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+
+  span {
+    display: block;
+    color: #f4eaff;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 400;
+    font-variant-numeric: tabular-nums;
+    text-shadow:
+      0 0 10px rgba(199, 162, 255, 0.8),
+      0 0 25px rgba(165, 107, 255, 0.4);
+  }
+
+  p {
+    margin: 8px 0 0;
+    color: #c7a2ff;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+}
+
+@media (max-width: 600px) {
+  .contador {
+    gap: 5px;
+  }
+
+  .unidad {
+    min-width: 85px;
+    padding: 10px 5px;
+  }
+}
+
+
+.universo {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.universo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background-image:
+    radial-gradient(2px 2px at 15% 20%, #fff 50%, transparent 100%),
+    radial-gradient(1px 1px at 80% 15%, #e5d4ff 50%, transparent 100%),
+    radial-gradient(2px 2px at 70% 75%, #fff 50%, transparent 100%),
+    radial-gradient(1px 1px at 30% 80%, #ffb8e2 50%, transparent 100%),
+    radial-gradient(1px 1px at 90% 55%, #fff 50%, transparent 100%);
+
+  background-size: 320px 260px;
+  opacity: 0.65;
+  animation: estrellas 8s ease-in-out infinite alternate;
+}
+
+@keyframes estrellas {
+  from {
+    opacity: 0.35;
+  }
+
+  to {
+    opacity: 0.85;
+  }
+}
+
+
+.carta-secreta {
+  max-width: 520px;
+  margin: 35px auto 0;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.boton-carta {
+  padding: 13px 24px;
+  color: #f4eaff;
+  background: rgba(199, 162, 255, 0.08);
+  border: 1px solid rgba(199, 162, 255, 0.6);
+  border-radius: 30px;
+  font: inherit;
+  cursor: pointer;
+  transition: 0.3s ease;
+
+  &:hover {
+    background: rgba(199, 162, 255, 0.18);
+    box-shadow: 0 0 20px rgba(165, 107, 255, 0.25);
+  }
+}
+
+.mensaje-carta {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  margin-top: 0;
+  padding: 0 24px;
+  border: 1px solid transparent;
+  border-radius: 18px;
+  color: #e8def8;
+  line-height: 1.9;
+  transition:
+    max-height 0.7s ease,
+    opacity 0.5s ease,
+    margin 0.5s ease,
+    padding 0.5s ease;
+}
+
+.mensaje-carta.abierta {
+  max-height: 500px;
+  opacity: 1;
+  margin-top: 25px;
+  padding: 24px;
+  border-color: rgba(199, 162, 255, 0.25);
+  background: rgba(15, 10, 35, 0.65);
+}
+
+.saludo-carta {
+  color: #ffb8e2;
+  font-size: 22px;
+}
+
+.firma-carta {
+  margin-top: 24px;
+  color: #c7a2ff;
+  font-style: italic;
+}
+
+
+.cuenta-regresiva {
+  margin: 65px auto 20px;
+  max-width: 700px;
+  text-align: center;
+
+  h2 {
+    color: #f4eaff;
+    font-size: clamp(22px, 4vw, 32px);
+    font-weight: 400;
+    margin: 20px 0;
+  }
+}
+
+.tiempo-faltante {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 22px;
+  color: #ffb8e2;
+  font-size: 25px;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 15px rgba(255, 184, 226, 0.35);
+
+  small {
+    display: block;
+    margin-top: 8px;
+    color: #c7a2ff;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: none;
+  }
+}
+
+.fecha-aniversario {
+  margin-top: 22px;
+  color: #d6c9ee;
+  letter-spacing: 2px;
+}
+
+
+
+/* Adaptación para celulares */
+@media (max-width: 600px) {
+  .universo {
+    padding: 20px 14px;
+  }
+
+  .portada {
+    padding: 35px 4px;
+  }
+
+  .etiqueta {
+    font-size: 9px;
+    letter-spacing: 2px;
+    line-height: 1.8;
+  }
+
+  h1 {
+    font-size: clamp(32px, 9vw, 44px);
+    margin: 22px 0;
+  }
+
+  .descripcion {
+    font-size: 14px;
+    line-height: 1.8;
+    padding: 0 5px;
+  }
+
+  .fecha {
+    font-size: 12px;
+    line-height: 1.8;
+  }
+
+  .contador {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px 4px;
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  .unidad {
+    min-width: 0;
+    padding: 10px 2px;
+
+    span {
+      font-size: clamp(24px, 7vw, 32px);
+    }
+
+    p {
+      font-size: 9px;
+      letter-spacing: 1px;
+    }
+  }
+
+  .carta-secreta {
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  .boton-carta {
+    max-width: 100%;
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+
+  .mensaje-carta.abierta {
+    padding: 18px;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .cuenta-regresiva {
+    margin-top: 45px;
+  }
+
+  .cuenta-regresiva h2 {
+    font-size: 23px;
+    line-height: 1.5;
+  }
+
+  .tiempo-faltante {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px 10px;
+    font-size: 25px;
+  }
+
+  .fecha-aniversario {
+    font-size: 12px;
+    line-height: 1.8;
+  }
+}

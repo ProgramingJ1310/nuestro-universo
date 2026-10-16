@@ -383,4 +383,156 @@ h1 {
   min-height: 100vh;
 }
 
-/* Quitar los márgenes predeterminados */
+
+/* SECCIÓN: NUESTRO PLANETA */
+
+.nuestro-planeta {
+  width: min(100%, 760px);
+  margin: 70px auto 35px;
+  padding: 32px 20px;
+  text-align: center;
+  color: $color-texto;
+}
+
+.etiqueta-planeta {
+  color: $color-violeta;
+  font-size: 10px;
+  letter-spacing: 3px;
+  margin-bottom: 18px;
+}
+
+.nuestro-planeta h2 {
+  font-size: clamp(25px, 5vw, 38px);
+  font-weight: 400;
+  margin: 0 0 14px;
+  text-shadow: 0 0 18px rgba(199, 162, 255, 0.35);
+}
+
+.descripcion-planeta {
+  max-width: 480px;
+  margin: 0 auto 26px;
+  line-height: 1.8;
+  color: #d8cbea;
+  font-size: 14px;
+}
+
+.planeta {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: clamp(150px, 42vw, 210px);
+  aspect-ratio: 1;
+  margin: 20px auto 28px;
+  border: 1px solid rgba(220, 199, 255, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  color: white;
+overflow: hidden;
+
+  background:
+    radial-gradient(circle at 30% 28%, rgba(255,255,255,.8) 0 1%, transparent 2%),
+    radial-gradient(ellipse at 35% 28%, #b8a0ff 0%, #6952bd 22%, #30205f 50%, #100a2b 74%);
+
+  box-shadow:
+    inset -18px -14px 28px rgba(0,0,0,.6),
+    inset 10px 8px 24px rgba(224,206,255,.3),
+    0 0 28px rgba(164,123,255,.35),
+    0 0 65px rgba(113,74,203,.2);
+
+  animation: flotar-planeta 5s ease-in-out infinite;
+}
+
+.planeta:hover {
+  box-shadow:
+    0 0 35px rgba(164,123,255,.55),
+    0 0 75px rgba(113,74,203,.35);
+}
+
+.brillo-planeta {
+  position: absolute;
+  inset: 9%;
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse at 65% 35%, transparent 0 22%, rgba(207,186,255,.25) 23% 27%, transparent 28%),
+    radial-gradient(ellipse at 28% 68%, rgba(161,131,235,.38), transparent 40%);
+  filter: blur(2px);
+  pointer-events: none;
+  z-index: 4;
+}
+
+.nombre-planeta {
+  position: relative;
+  z-index: 1;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-shadow: 0 0 12px rgba(255,255,255,.8);
+}
+
+.mensaje-planeta {
+  max-width: 470px;
+  margin: 0 auto;
+  padding: 0 18px;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transform: translateY(10px);
+  transition:
+    opacity .5s ease,
+    transform .5s ease,
+    max-height .5s ease,
+    padding .5s ease;
+
+  color: #eee5ff;
+  line-height: 1.9;
+  background: rgba(27,18,55,.38);
+  border: 1px solid transparent;
+  border-radius: 18px;
+}
+
+.mensaje-planeta.visible {
+  opacity: 1;
+  max-height: 300px;
+  padding: 18px;
+  transform: translateY(0);
+  border-color: rgba(199,162,255,.25);
+}
+
+.firma-planeta {
+  color: $color-rosa;
+  margin-bottom: 0;
+}
+
+.pista-planeta {
+  margin-top: 22px;
+  font-size: 11px;
+  color: #bbaad9;
+  letter-spacing: .5px;
+}
+
+@keyframes flotar-planeta {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (max-width: 600px) {
+  .nuestro-planeta {
+    margin-top: 40px;
+    padding: 28px 10px;
+  }
+
+  .descripcion-planeta {
+    font-size: 13px;
+  }
+
+  .mensaje-planeta.visible {
+    padding: 16px 14px;
+  }
+}
+
+

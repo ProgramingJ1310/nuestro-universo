@@ -28,7 +28,7 @@ minutosFaltantes: number = 0;
 segundosFaltantes: number = 0;
 
   cartaAbierta: boolean = false;
-
+planetaAbierto: boolean = false;
 
 calcularTiempo(): void {
   const ahora = new Date();
@@ -70,6 +70,9 @@ alternarCarta(): void {
   this.cartaAbierta = !this.cartaAbierta;
 }
 
+alternarPlaneta(): void {
+  this.planetaAbierto = !this.planetaAbierto;
+}
 
 calcularCuentaRegresiva(): void {
   const ahora = new Date();

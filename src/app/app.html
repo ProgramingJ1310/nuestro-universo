@@ -43,46 +43,69 @@
     </div>
 
     <section class="carta-secreta">
-  <button class="boton-carta" (click)="alternarCarta()">
-    {{ cartaAbierta ? 'Cerrar mi cartita ♡' : 'Hay algo para ti ✉' }}
-  </button>
+      <button class="boton-carta" (click)="alternarCarta()">
+        {{ cartaAbierta ? 'Cerrar mi cartita ♡' : 'Hay algo para ti ✉' }}
+      </button>
 
-  <div class="mensaje-carta" [class.abierta]="cartaAbierta">
-    <p class="saludo-carta">Para mi amor ♡</p>
+      <div class="mensaje-carta" [class.abierta]="cartaAbierta">
+        <p class="saludo-carta">Para mi amor ♡</p>
 
-    <p>
-      Si pudiera elegir un lugar en todo el universo,
-      te elegiría a ti una y mil veces.
-    </p>
+        <p>Si pudiera elegir un lugar en todo el universo, te elegiría a ti una y mil veces.</p>
 
-    <p>
-      Aunque la distancia nos separe por kilómetros,
-      hay una parte de mí que siempre está contigo.
-      Gracias por seguir escribiendo esta historia a mi lado.
-    </p>
+        <p>
+          Aunque la distancia nos separe por kilómetros, hay una parte de mí que siempre está
+          contigo. Gracias por seguir escribiendo esta historia a mi lado.
+        </p>
 
-    <p class="firma-carta">Con todo mi amor, siempre. ♡</p>
-  </div>
-</section>
+        <p class="firma-carta">Con todo mi amor, siempre. ♡</p>
+      </div>
+    </section>
 
+    <section class="cuenta-regresiva">
+      <p class="etiqueta">✦ NUESTRO PRÓXIMO ANIVERSARIO ✦</p>
 
-<section class="cuenta-regresiva">
-  <p class="etiqueta">✦ NUESTRO PRÓXIMO ANIVERSARIO ✦</p>
+      <h2>Falta poquito para nuestro día ♡</h2>
 
-  <h2>Falta poquito para nuestro día ♡</h2>
+      <div class="tiempo-faltante">
+        <span>{{ diasFaltantes }} <small>días</small></span>
+        <span>{{ horasFaltantes }} <small>horas</small></span>
+        <span>{{ minutosFaltantes }} <small>min</small></span>
+        <span>{{ segundosFaltantes }} <small>seg</small></span>
+      </div>
 
-  <div class="tiempo-faltante">
-    <span>{{ diasFaltantes }} <small>días</small></span>
-    <span>{{ horasFaltantes }} <small>horas</small></span>
-    <span>{{ minutosFaltantes }} <small>min</small></span>
-    <span>{{ segundosFaltantes }} <small>seg</small></span>
-  </div>
+      <p class="fecha-aniversario">26 de octubre ♡</p>
+    </section>
 
-  <p class="fecha-aniversario">26 de octubre ♡</p>
-</section>
+    <section class="nuestro-planeta">
+      <p class="etiqueta-planeta">✦ UN LUGAR SOLO NUESTRO ✦</p>
 
+      <h2>Nuestro pequeño universo</h2>
+
+      <p class="descripcion-planeta">
+        Entre tantos mundos, siempre elegiría el que comparto contigo.
+      </p>
+
+      <button
+        class="planeta"
+        type="button"
+        (click)="alternarPlaneta()"
+        [attr.aria-expanded]="planetaAbierto"
+        aria-label="Descubrir nuestro planeta"
+      >
+       
+        <span class="brillo-planeta"></span>
+        <span class="nombre-planeta">J &amp; I</span>
+      </button>
+
+      <div class="mensaje-planeta" [class.visible]="planetaAbierto">
+        <p>
+          Mi lugar favorito no está en ningún mapa. Está donde puedo compartir mis días contigo,
+          incluso cuando la distancia nos separa.
+        </p>
+        <p class="firma-planeta">Siempre tú y yo ♡</p>
+      </div>
+
+      <p class="pista-planeta">Toca nuestro planeta para descubrir un mensaje ✨</p>
+    </section>
   </section>
-  
-
-
 </main>
